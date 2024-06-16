@@ -1,20 +1,12 @@
 import { Box } from "@mui/material";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment } from "react";
 import ProductCard from "../../commonComponents/productCardComponent/productCard";
 import "./products.css";
 
-function Products() {
-  const [cardData, setCardData] = useState();
-
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((json) => setCardData(json));
-  }, []);
-
+function Products(props) {
   return (
     <Box className="productsMainBox">
-      {cardData?.map((item) => {
+      {props.cardData?.map((item) => {
         return (
           <Fragment key={item.id}>
             <ProductCard item={item} />

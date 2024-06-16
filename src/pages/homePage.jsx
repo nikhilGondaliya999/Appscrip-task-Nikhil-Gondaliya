@@ -7,18 +7,28 @@ import SideBarProducts from "../components/homeComponent/sideBarProductComponent
 
 function HomePage() {
   const [showSideBar, setShowSideBar] = useState(false);
+  const [cardData, setCardData] = useState();
+
   const handleSideBar = () => {
     setShowSideBar(!showSideBar);
   };
 
- 
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((json) => setCardData(json));
+  }, []);
 
   return (
     <div>
       <Layout>
         <MainTitle />
-        <SubTitle showSideBar={showSideBar} handleSideBar={handleSideBar} />
-        <SideBarProducts showSideBar={showSideBar} />
+        <SubTitle
+          showSideBar={showSideBar}
+          handleSideBar={handleSideBar}
+          cardData={cardData}
+        />
+        <SideBarProducts showSideBar={showSideBar} cardData={cardData} />
       </Layout>
     </div>
   );

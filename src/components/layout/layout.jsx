@@ -96,7 +96,7 @@ function Layout({ children }) {
         </Box>
       )}
       <Box className="childrenLayout">{children}</Box>
-      {/* <Footer /> */}
+      <Footer />
     </Box>
   );
 }

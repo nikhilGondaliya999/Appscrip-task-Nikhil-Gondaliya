@@ -1,21 +1,29 @@
 import React, { useState } from "react";
 import "./subTitle.css";
-import { Box, Button, MenuItem, Typography } from "@mui/material";
+import { Box, Button, InputLabel, MenuItem, Typography } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import Select from "@mui/material/Select";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import useMediaQuery from "@mui/material/useMediaQuery";
-
+import CheckIcon from "@mui/icons-material/Check";
 function SubTitle(props) {
-  const [age, setAge] = useState("");
+  const [select, setSelect] = useState("");
   const tablet = useMediaQuery("(max-width:1000px)");
   const mobile = useMediaQuery("(max-width:768px)");
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setSelect(event.target.value);
   };
+  console.log(select);
 
+  const selectOptions = [
+    { id: "", label: "RECOMMENDED" },
+    { id: 10, label: "NEWEST FIRST " },
+    { id: 20, label: "POPULAR" },
+    { id: 30, label: "PRICE : HIGH TO LOW" },
+    { id: 40, label: "PRICE : LOW TO HIGH" },
+  ];
   return (
     <Box className="subTitMainBox">
       {mobile ? (
@@ -40,7 +48,7 @@ function SubTitle(props) {
                 fontWeight: 700,
               }}
             >
-              3425 Items
+              {props.cardData?.length} Items
             </Typography>
             <Button
               onClick={props.handleSideBar}
@@ -65,8 +73,26 @@ function SubTitle(props) {
         </>
       )}
       <Box className="recommendedBox">
+        <InputLabel
+          id="sort-label"
+          sx={{
+            fontFamily: "InterExtraBold",
+            fontSize: mobile ? "13px" : tablet ? "14px" : "16px",
+            color: "black",
+          }}
+        >
+          {select === 10
+            ? "NEWEST FIRST"
+            : select === 20
+            ? "POPULAR"
+            : select === 30
+            ? "PRICE : HIGH TO LOW"
+            : select === 40
+            ? "PRICE : LOW TO HIGH"
+            : "RECOMMENDED"}
+        </InputLabel>
         <Select
-          value={age}
+          // value={select}
           onChange={handleChange}
           displayEmpty
           inputProps={{ "aria-label": "Without label" }}
@@ -94,11 +120,25 @@ function SubTitle(props) {
             },
           }}
         >
-          <MenuItem value="">RECOMMENDED</MenuItem>
-          <MenuItem value={10}>Newest first</MenuItem>
-          <MenuItem value={20}>popular</MenuItem>
-          <MenuItem value={30}>Price : high to low</MenuItem>
-          <MenuItem value={40}>Price : low to high</MenuItem>
+          {selectOptions.map((item) => {
+            return (
+              <MenuItem
+                key={item.id}
+                value={item.id}
+                sx={{
+                  fontFamily: "SimplonNorm",
+                  fontWeight: select === item.id ? 700 : 400,
+                  width: "210px",
+                  display: "flex",
+                  gap: "15px",
+                  justifyContent: "end",
+                }}
+              >
+                {select === item.id && <CheckIcon />}
+                {item.label}
+              </MenuItem>
+            );
+          })}
         </Select>
       </Box>
     </Box>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./sideBarProducts.css";
 import { Box, useMediaQuery } from "@mui/material";
 import SideBar from "../sideBarComponents/sideBar";
@@ -10,7 +10,7 @@ function SideBarProducts(props) {
   return (
     <Box className="sideProductMainBox">
       {props.showSideBar || (!mobile && <SideBar />)}
-      <Products />
+      <Products cardData={props.cardData} />
     </Box>
   );
 }

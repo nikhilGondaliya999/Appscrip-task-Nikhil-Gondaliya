@@ -1,80 +1,166 @@
-.footerMainBox{
-    width: 100%;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px;
-    padding-left: 60px;
-    padding-right: 60px;
-}
-.footerBoxOne{
-width: 100%;
-/* max-width: 1248px; */
-border-bottom: 1px solid white;
-display: flex;
-justify-content: space-between;
-padding-bottom: 15px;
+.footerMainBox {
+     width: 100%;
+     background-color: black;
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+     align-items: center;
+     padding: 50px 60px;
+     box-sizing: border-box;
+ }
 
-}
-.subscribeMainBox{
-    width: 100%;
-    max-width: 600px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+ .footerBoxOne {
+     width: 100%;
+     border-bottom: 1px solid white;
+     display: flex;
+     justify-content: space-between;
+     padding-bottom: 15px;
+     flex-wrap: wrap;
+ }
 
-}
-.inputSubBox{
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-}
-.inputFiled{
-    background-color: white;
-    width:100%;
-}
-.contactUsBox{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-    gap: 5px;
-}
-.footerBoxTwo{
-    width: 100%;
-    display: flex;
-    padding-top: 50px;
-    justify-content: space-between;
-}
-.mettaBox{
-    width: 100%;
-    max-width: 380px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.usaLogo{
-    width: 24px;
-    height: 24px;
-}
-.stopIcon{
-  rotate: 40deg;
-}
-.instaLinkBox{
-    display: flex;
-    gap: 7px;
-    margin-top: 20px;
-}
-.linkInstaIcon{
-    width: 30px;
-    height: 30px;
-}
-.paymentInfoBox{
-    margin-top: 30px;
-}
-.paymentIcons{
-    width: 100%;
-    margin-top: 20px;
-}
+ .subscribeMainBox {
+     width: 100%;
+     max-width: 600px;
+     display: flex;
+     flex-direction: column;
+     gap: 10px;
+     margin-bottom: 20px;
+ }
+
+ .inputSubBox {
+     display: flex;
+     gap: 10px;
+     margin-top: 20px;
+ }
+
+ .inputFiled {
+     background-color: white;
+     flex-grow: 1;
+ }
+
+ .contactUsBox {
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     max-width: 500px;
+     gap: 5px;
+ }
+
+ .footerBoxTwo {
+     width: 100%;
+     display: flex;
+     padding-top: 50px;
+     justify-content: space-between;
+     flex-wrap: wrap;
+ }
+
+ .mettaBox {
+     width: 100%;
+     max-width: 380px;
+     display: flex;
+     flex-direction: column;
+     gap: 10px;
+     margin-bottom: 20px;
+ }
+
+ .usaLogo {
+     width: 24px;
+     height: 24px;
+ }
+
+ .stopIcon {
+     rotate: 40deg;
+ }
+
+ .instaLinkBox {
+     display: flex;
+     gap: 7px;
+     margin-top: 20px;
+ }
+
+ .linkInstaIcon {
+     width: 30px;
+     height: 30px;
+ }
+
+ .paymentInfoBox {
+     margin-top: 30px;
+ }
+
+ .paymentIcons {
+     width: 100%;
+     margin-top: 20px;
+ }
+
+ /* Responsive Styles */
+ @media (max-width: 768px) {
+    .footerMainBox {
+        width: 100%;
+        padding: 30px 20px;
+    }
+
+     .footerBoxTwo {
+            padding-top: 5px;
+     } 
+
+     .footerBoxOne {
+         padding-bottom: 30px;
+            flex-direction: column;
+                align-items: center;
+     }
+
+     .mettaBox {
+         max-width: 100%;
+         margin-bottom: 9px;
+         padding-bottom: 6px;
+         border-bottom: 1px solid white;
+     }
+          .mettaBox2 {
+              max-width: 100%;
+              margin-bottom: 8px;
+              padding-bottom: 6px;
+              border-bottom: 1px solid white;
+            width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                /* margin-bottom: 20px; */
+          }
+    .mettaBox3{
+        max-width: 100%;
+            margin-bottom: 8px;
+            padding-bottom: 6px;
+            /* border-bottom: 1px solid white; */
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+    }
+     .contactNumberBox{
+        border-bottom: 1px solid white;
+        padding-bottom: 15px;
+     }
+     .inputSubBox {
+         /* flex-direction: column; */
+         gap: 10px;
+         border-bottom: 1px solid white;
+         padding-bottom: 20px;
+     }
+     .contentNumberBox{
+        display: flex;
+     }
+     .inputFiled {
+         width: 100%;
+     }
+
+     .subscribeMainBox,
+     .contactUsBox {
+         max-width: 100%;
+     }
+    .paymentIcons {
+      width: 100%;
+      max-width: 400px;
+      margin-top: 20px;
+    }
+      
+ }

@@ -1,7 +1,7 @@
 import { Box, MenuItem, Typography } from "@mui/material";
 import React from "react";
 import "./header.css";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Select from "@mui/material/Select";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
