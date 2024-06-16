@@ -1,38 +1,33 @@
-.App {
-  text-align: center;
+@font-face {
+    font-family: 'InterRegular';
+    src: local('InterRegular'), url('./assets/fonts/Inter-Regular.woff2') format('woff2');
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+    font-family: 'InterExtraLight';
+    src: local('InterExtraLight'), url('./assets/fonts//Inter-ExtraLight.woff2') format('woff2');
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+    font-family: 'InterLight';
+    src: local('InterLight'), url('./assets/fonts/Inter-Light.woff2') format('woff2');
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@font-face {
+    font-family: 'InterMedium';
+    src: local('InterMedium'), url('./assets/fonts/Inter-Medium.woff2') format('woff2');
 }
-
-.App-link {
-  color: #61dafb;
+@font-face {
+    font-family: 'InterSemiBold';
+    src: local('InterSemiBold'), url('./assets/fonts/Inter-SemiBold.woff2') format('woff2');
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@font-face {
+    font-family: 'InterBold';
+    src: local('InterBold'), url('./assets/fonts/Inter-Bold.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'InterExtraBold';
+    src: local('InterExtraBold'), url('./assets/fonts/Inter-ExtraBold.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'SimplonNorm';
+    src: local('SimplonNorm'), url('./assets/fonts/SimplonNorm-Regular-WebS.woff') format('woff2');
 }

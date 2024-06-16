@@ -1,0 +1,15 @@
+.sideMainBox{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 300px;
+    /* max-width: 300px; */
+   padding: 0px;
+   padding-left: 10px;
+    
+}
+.customizbleBox{
+    width: 100%;
+    /* border-bottom: 1px solid #E5E5E5; */
+    padding-bottom: 10px;
+}

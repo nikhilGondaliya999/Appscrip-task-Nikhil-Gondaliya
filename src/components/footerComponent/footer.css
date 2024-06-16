@@ -1,0 +1,80 @@
+.footerMainBox{
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+.footerBoxOne{
+width: 100%;
+/* max-width: 1248px; */
+border-bottom: 1px solid white;
+display: flex;
+justify-content: space-between;
+padding-bottom: 15px;
+
+}
+.subscribeMainBox{
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+.inputSubBox{
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+.inputFiled{
+    background-color: white;
+    width:100%;
+}
+.contactUsBox{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    gap: 5px;
+}
+.footerBoxTwo{
+    width: 100%;
+    display: flex;
+    padding-top: 50px;
+    justify-content: space-between;
+}
+.mettaBox{
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.usaLogo{
+    width: 24px;
+    height: 24px;
+}
+.stopIcon{
+  rotate: 40deg;
+}
+.instaLinkBox{
+    display: flex;
+    gap: 7px;
+    margin-top: 20px;
+}
+.linkInstaIcon{
+    width: 30px;
+    height: 30px;
+}
+.paymentInfoBox{
+    margin-top: 30px;
+}
+.paymentIcons{
+    width: 100%;
+    margin-top: 20px;
+}

@@ -1,0 +1,30 @@
+.productsMainBox {
+    width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .productsMainBox {
+        width: 100%;
+            max-width: 500px;
+            /* Add a max-width to control the width of the grid */
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin: auto;
+        }
+}
+
+@media only screen and (max-width: 600px) {
+    .productsMainBox {
+        max-width: 400px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .productsMainBox {
+        max-width: 300px;
+    }
+}
