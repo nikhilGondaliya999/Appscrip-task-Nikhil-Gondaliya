@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./subTitle.css";
-import { Box, Button, InputLabel, MenuItem, Typography } from "@mui/material";
+import { Box, Button, MenuItem, Typography } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import Select from "@mui/material/Select";
@@ -73,26 +73,8 @@ function SubTitle(props) {
         </>
       )}
       <Box className="recommendedBox">
-        <InputLabel
-          id="sort-label"
-          sx={{
-            fontFamily: "InterExtraBold",
-            fontSize: mobile ? "13px" : tablet ? "14px" : "16px",
-            color: "black",
-          }}
-        >
-          {select === 10
-            ? "NEWEST FIRST"
-            : select === 20
-            ? "POPULAR"
-            : select === 30
-            ? "PRICE : HIGH TO LOW"
-            : select === 40
-            ? "PRICE : LOW TO HIGH"
-            : "RECOMMENDED"}
-        </InputLabel>
         <Select
-          // value={select}
+          value={select}
           onChange={handleChange}
           displayEmpty
           inputProps={{ "aria-label": "Without label" }}
@@ -105,7 +87,6 @@ function SubTitle(props) {
             boxShadow: "none",
             padding: 0,
             height: "25px",
-            // bgcolor: "red",
             ".MuiOutlinedInput-notchedOutline": { border: 0 },
             "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": {
               border: 0,
