@@ -1,10 +1,8 @@
 import React from "react";
-import "./layout.css";
-import { Box, Link, Typography } from "@mui/material";
+import "./layout.css"; // Assuming this contains all your CSS styles
 import Header from "../headerComponent/header";
 import Footer from "../footerComponent/footer";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
+
 function Layout({ children }) {
   const data = [
     { label: "Lorem ipsum dolor", id: 1 },
@@ -12,92 +10,80 @@ function Layout({ children }) {
     { label: "Lorem ipsum dolor", id: 3 },
   ];
 
-  const mobile = useMediaQuery("(max-width:768px)");
+  const mobile = window.matchMedia("(max-width:768px)").matches;
 
   return (
-    <Box>
-      <Box className="pageTopLineBox">
+    <div>
+      <div className="pageTopLineBox">
         {mobile ? (
-          <Box className="topIconTextBox">
+          <div className="topIconTextBox">
             <img
               src={require("../../assets/icons/topLineIcon.png")}
               className="topLineIcon"
               alt="topLineIcon"
             />
-            <Typography
+            <p
               className="topLineText"
-              sx={{ fontFamily: "InterExtraLight", fontSize: "12px" }}
+              style={{ fontFamily: "InterExtraLight", fontSize: "12px" }}
             >
               Lorem ipsum dolor
-            </Typography>
-          </Box>
+            </p>
+          </div>
         ) : (
           <>
             {data.map((item) => {
               return (
-                <Box className="topIconTextBox" key={item.id}>
+                <div className="topIconTextBox" key={item.id}>
                   <img
                     src={require("../../assets/icons/topLineIcon.png")}
                     className="topLineIcon"
                     alt="topLineIcon"
                   />
-                  <Typography
+                  <p
                     className="topLineText"
-                    sx={{ fontFamily: "InterExtraLight", fontSize: "12px" }}
+                    style={{ fontFamily: "InterExtraLight", fontSize: "12px" }}
                   >
                     {item.label}
-                  </Typography>
-                </Box>
+                  </p>
+                </div>
               );
             })}
           </>
         )}
-      </Box>
+      </div>
       <Header />
       {mobile && (
-        <Box className="breadLinkBox">
-          <Breadcrumbs
-            aria-label="breadcrumb"
-            separator={
-              <Typography
-                sx={{
-                  fontFamily: "SimplonNorm",
-                  color: "#BFC8CD",
-                }}
-              >
-                |
-              </Typography>
-            }
-          >
-            <Link
-              underline="hover"
-              color="inherit"
-              href=""
-              sx={{
+        <div className="breadLinkBox">
+          <div aria-label="breadcrumb" className="breadcrumbs">
+            <a
+              className="breadcrumb-link"
+              style={{
                 fontSize: "12px",
                 fontFamily: "SimplonNorm",
                 color: "#BFC8CD",
+                textDecoration: "none",
               }}
             >
               HOME
-            </Link>
-            <Link
-              underline="hover"
-              color="inherit"
-              href=""
-              sx={{
+            </a>
+            <span className="breadcrumb-separator"> | </span>
+
+            <a
+              className="breadcrumb-link"
+              style={{
                 fontSize: "12px",
                 fontFamily: "SimplonNorm",
+                textDecoration: "none",
               }}
             >
               SHOP
-            </Link>
-          </Breadcrumbs>
-        </Box>
+            </a>
+          </div>
+        </div>
       )}
-      <Box className="childrenLayout">{children}</Box>
+      <div className="childrenLayout">{children}</div>
       <Footer />
-    </Box>
+    </div>
   );
 }
 

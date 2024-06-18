@@ -13,17 +13,19 @@
     justify-content: space-between;
 }
 .hideShowBtn{
-    /* background-color: blue !important; */
     height: 27px;
     color: #888792 !important;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 .hideShowText{
     border-bottom: 1px solid #888792;
 }
 .recommendedBox {
     display: flex;
-    /* width: 100%; */
-    /* justify-content: center; */
 }
 
 @media only screen and (max-width: 1000px) {

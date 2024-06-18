@@ -18,7 +18,6 @@ function HomePage() {
       .then((res) => res.json())
       .then((json) => setCardData(json));
   }, []);
-
   return (
     <div>
       <Layout>

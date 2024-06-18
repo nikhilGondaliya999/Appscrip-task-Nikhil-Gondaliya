@@ -1,117 +1,67 @@
-import React from "react";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import React, { useEffect, useRef, useState } from "react";
 import "./sliderOption.css";
-import { Box, Typography } from "@mui/material";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 
 function SliderOptions(props) {
+  const [expanded, setExpanded] = useState(false);
+  const contentRef = useRef(null);
+  const [maxHeight, setMaxHeight] = useState("0px");
+
+  useEffect(() => {
+    if (expanded) {
+      setMaxHeight(`${contentRef.current.scrollHeight}px`);
+    } else {
+      setMaxHeight("0px");
+    }
+  }, [expanded]);
+
+  const handleAccordionChange = () => {
+    setExpanded(!expanded);
+  };
+
   return (
-    <Accordion
-      sx={{
-        borderLeft: "none",
-        borderRight: "none",
-        boxShadow: "none",
-        padding: "0px",
-        width: "100%",
-        borderRadius: "0px",
-        borderTop: "1px solid #BFC8CD",
-        "&.Mui-expanded": {
-          borderLeft: "none",
-          borderRight: "none",
-          borderTop: "1px solid #BFC8CD",
-          borderRadius: "0px",
-        },
-      }}
-    >
-      <AccordionSummary
-        expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1-content"
-        id="panel1-header"
+    <div className="accordion-container">
+      <div
+        className={`accordion-header ${expanded ? "expanded" : ""}`}
+        onClick={handleAccordionChange}
       >
-        <Box>
-          <Typography
-            sx={{
-              fontSize: "18px",
-              fontFamily: "SimplonNorm",
-              fontWeight: 700,
-            }}
-          >
-            {props.title}
-          </Typography>
-          <Typography
-            sx={{
-              fontSize: "18px",
-              fontFamily: "SimplonNorm",
-              fontWeight: 400,
-            }}
-          >
-            {props.subtitle}
-          </Typography>
-        </Box>
-      </AccordionSummary>
-      <AccordionDetails>
-        <Typography
-          className="unSelect"
-          sx={{
-            fontSize: "16px",
-            fontFamily: "SimplonNorm",
-            fontWeight: 400,
-            lineHeight: "15px",
-          }}
-        >
-          Unselect
-        </Typography>
-        <FormGroup>
-          <FormControlLabel
-            control={<Checkbox />}
-            label={
-              <Typography
-                sx={{
-                  fontSize: "16px",
-                  fontFamily: "SimplonNorm",
-                  fontWeight: 400,
-                }}
-              >
-                Men
-              </Typography>
-            }
-          />
-          <FormControlLabel
-            control={<Checkbox />}
-            label={
-              <Typography
-                sx={{
-                  fontSize: "16px",
-                  fontFamily: "SimplonNorm",
-                  fontWeight: 400,
-                }}
-              >
-                Women
-              </Typography>
-            }
-          />
-          <FormControlLabel
-            control={<Checkbox />}
-            label={
-              <Typography
-                sx={{
-                  fontSize: "16px",
-                  fontFamily: "SimplonNorm",
-                  fontWeight: 400,
-                }}
-              >
-                Baby & Kids
-              </Typography>
-            }
-          />
-        </FormGroup>
-      </AccordionDetails>
-    </Accordion>
+        <div className="accordion-header-content">
+          <h3 className="accordion-title">{props.title}</h3>
+          <p className="accordion-subtitle">{props.subtitle}</p>
+        </div>
+        <div className="accordion-expand-icon">
+          {expanded ? (
+            <i className="fa fa-angle-up" aria-hidden="true"></i>
+          ) : (
+            <i className="fa fa-angle-down" aria-hidden="true"></i>
+          )}
+        </div>
+      </div>
+      <div className="accordion-details-wrapper" style={{ maxHeight }}>
+        <div className="accordion-details" ref={contentRef}>
+          <p className="unSelect">Unselect</p>
+          <div className="checkbox-group">
+            <label className="custoLabelAlgin">
+              <input type="checkbox" className="customizeCheckbox" />
+              <span>
+                <span className="accordionCheckLabel">Men</span>
+              </span>
+            </label>
+            <label className="custoLabelAlgin">
+              <input type="checkbox" className="customizeCheckbox" />
+              <span>
+                <span className="accordionCheckLabel">Women</span>
+              </span>
+            </label>
+            <label className="custoLabelAlgin">
+              <input type="checkbox" className="customizeCheckbox" />
+              <span>
+                <span className="accordionCheckLabel">Baby & Kids</span>
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

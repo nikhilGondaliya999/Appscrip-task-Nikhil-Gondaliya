@@ -1,17 +1,16 @@
 import React from "react";
 import "./sideBarProducts.css";
-import { Box, useMediaQuery } from "@mui/material";
 import SideBar from "../sideBarComponents/sideBar";
 import Products from "../productComponent/products";
 
 function SideBarProducts(props) {
-  const mobile = useMediaQuery("(max-width:768px)");
+  const mobile = window.matchMedia("(max-width:768px)").matches; // Use window.innerWidth for media query
 
   return (
-    <Box className="sideProductMainBox">
+    <div className="sideProductMainBox">
       {props.showSideBar || (!mobile && <SideBar />)}
       <Products cardData={props.cardData} />
-    </Box>
+    </div>
   );
 }
 

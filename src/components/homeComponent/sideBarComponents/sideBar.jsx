@@ -1,28 +1,18 @@
-import { Box, Typography } from "@mui/material";
 import React from "react";
 import "./sideBar.css";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import SliderOptions from "../../commonComponents/sideBarOptionComponent/sliderOptions";
 
 function SideBar(props) {
   return (
-    <Box className="sideMainBox">
-      <FormControlLabel
-        className="customizbleBox"
-        control={<Checkbox />}
-        label={
-          <Typography
-            sx={{
-              fontSize: "18px",
-              fontFamily: "SimplonNorm",
-              fontWeight: 700,
-            }}
-          >
-            CUSTOMIZBLE
-          </Typography>
-        }
-      />
+    <div className="sideMainBox">
+      <div className="customizbleBox">
+        <label className="custoLabelAlgin">
+          <input type="checkbox" className="customizeCheckbox" />
+          <span>
+            <span className="customizeText">CUSTOMIZBLE</span>
+          </span>
+        </label>
+      </div>
 
       <SliderOptions title="IDEAL FOR" subtitle="ALL" />
       <SliderOptions title="OCCASION" subtitle="ALL" />
@@ -32,7 +22,7 @@ function SideBar(props) {
       <SliderOptions title="SUITABLE FOR" subtitle="ALL" />
       <SliderOptions title="RAW MATERIALS" subtitle="ALL" />
       <SliderOptions title="PATTERN" subtitle="ALL" />
-    </Box>
+    </div>
   );
 }
 

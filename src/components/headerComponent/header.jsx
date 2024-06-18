@@ -1,21 +1,25 @@
-import { Box, MenuItem, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import "./header.css";
-import Select from "@mui/material/Select";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import useMediaQuery from "@mui/material/useMediaQuery";
 
 function Header() {
-  const [age, setAge] = React.useState(10);
-  const table = useMediaQuery("(max-width:1000px)");
-  const mobile = useMediaQuery("(max-width:768px)");
+  const tablet = window.matchMedia("(max-width:1000px)").matches;
+  const mobile = window.matchMedia("(max-width:768px)").matches;
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("ENG");
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
   };
+
+  const handleOptionSelect = (option) => {
+    setSelectedOption(option);
+    setIsOpen(false);
+  };
+
   return (
-    <Box className="headerMainBox">
-      <Box className="headerSubBox">
+    <header className="headerMainBox">
+      <div className="headerSubBox">
         {mobile && (
           <img
             src={require("../../assets/icons/menu.png")}
@@ -28,16 +32,16 @@ function Header() {
           alt="header icon"
           className="headerIcon"
         />
-        <Typography
+        <span
           className="headerLogoText"
-          sx={{
-            fontSize: mobile ? "22px" : table ? "29px" : "35px",
+          style={{
+            fontSize: mobile ? "22px" : tablet ? "29px" : "35px",
             fontFamily: "InterExtraBold",
           }}
         >
           LOGO
-        </Typography>
-        <Box className="headerSideIconBox">
+        </span>
+        <div className="headerSideIconBox">
           <img
             src={require("../../assets/icons/search-normal.png")}
             alt="search icon"
@@ -62,57 +66,43 @@ function Header() {
           )}
 
           {!mobile && (
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={age}
-              onChange={handleChange}
-              IconComponent={ExpandMoreIcon}
-              sx={{
-                fontFamily: "InterExtraBold",
-                fontSize: table ? "13px" : "16px",
-                boxShadow: "none",
-                padding: 0,
-                height: table ? "20px" : "25px",
-                ".MuiOutlinedInput-notchedOutline": { border: 0 },
-                "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
-                  {
-                    border: 0,
-                  },
-                "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                  {
-                    border: 0,
-                  },
-                ".MuiSelect-select": {
-                  padding: 0,
-                  height: table ? "15px" : "20px",
-                },
-              }}
-            >
-              <MenuItem value={10}>ENG</MenuItem>
-              <MenuItem value={20}>HINDI</MenuItem>
-            </Select>
+            <div className="custom-dropdown">
+              <div className="dropdown-header" onClick={toggleDropdown}>
+                {selectedOption}
+                {isOpen ? (
+                  <i className="fa fa-angle-up" aria-hidden="true"></i>
+                ) : (
+                  <i className="fa fa-angle-down" aria-hidden="true"></i>
+                )}
+              </div>
+              {isOpen && (
+                <ul className="dropdown-options">
+                  <li onClick={() => handleOptionSelect("ENG")}>ENG</li>
+                  <li onClick={() => handleOptionSelect("HINDI")}>HINDI</li>
+                </ul>
+              )}
+            </div>
           )}
-        </Box>
-      </Box>
+        </div>
+      </div>
       {!mobile && (
-        <Box className="headerPageListBox">
+        <nav className="headerPageListBox">
           {["SHOP", "SKILLS", "STORIES", "ABOUT", "CONTACT US"].map((title) => (
-            <Typography
+            <span
               key={title}
-              sx={{
-                fontSize: table ? "17px" : "20px",
+              style={{
+                fontSize: tablet ? "17px" : "20px",
                 fontFamily: "SimplonNorm",
                 fontWeight: "bold",
               }}
               className="headerTitles"
             >
               {title}
-            </Typography>
+            </span>
           ))}
-        </Box>
+        </nav>
       )}
-    </Box>
+    </header>
   );
 }
 

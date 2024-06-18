@@ -1,580 +1,137 @@
 import React from "react";
 import "./footer.css";
-import {
-  Accordion,
-  Box,
-  Button,
-  TextField,
-  Typography,
-  useMediaQuery,
-  AccordionSummary,
-  AccordionDetails,
-} from "@mui/material";
-import StopIcon from "@mui/icons-material/Stop";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import FooterAccordion from "../commonComponents/footerAccordionComponent/footerAccordion";
 
 function Footer() {
-  const mobile = useMediaQuery("(max-width:768px)");
+  const mobile = window.matchMedia("(max-width:768px)").matches;
+
+  const dataOne = [
+    { id: 1, label: "About Us" },
+    { id: 2, label: "Stories" },
+    { id: 3, label: "Artisans" },
+    { id: 4, label: "Boutiques" },
+    { id: 5, label: "Contact Us" },
+    { id: 6, label: "EU Compliances Docs" },
+  ];
+
+  const dataTwo = [
+    { id: 1, label: "Orders & Shipping" },
+    { id: 2, label: "Join/Login as a Seller" },
+    { id: 3, label: "Payment & Pricing" },
+    { id: 4, label: "Return & Refunds" },
+    { id: 5, label: "FAQs" },
+    { id: 6, label: "Privacy Policy" },
+    { id: 7, label: "Terms & Conditions" },
+  ];
+
+  const dataThree = [
+    { id: 1, icon: "linkdin.png", alt: "linkdin" },
+    { id: 2, icon: "Insta.png", alt: "Insta" },
+  ];
 
   return (
-    <Box className="footerMainBox">
-      <Box className="footerBoxOne">
-        <Box className="subscribeMainBox">
-          <Typography
-            sx={{
-              fontSize: "20px",
-              fontFamily: "SimplonNorm",
-              fontWeight: 700,
-              color: "white",
-            }}
-          >
-            BE THE FIRST TO KNOW
-          </Typography>
-          <Typography
-            sx={{
-              fontSize: "16px",
-              fontFamily: "SimplonNorm",
-              fontWeight: 400,
-              color: "white",
-            }}
-          >
+    <div className="ft-MainBox">
+      <div className="ft-BoxOne">
+        <div className="ft-subscribeMainBox">
+          <p className="ft-beFirstTitleText">BE THE FIRST TO KNOW</p>
+          <p className="ft-signUpText">
             {mobile
               ? "Lorem Ipsum is simply dummy text of the printing and typesetting industry. this is simply dummy text."
               : "Sign up for updates from mettā muse."}
-          </Typography>
-          <Box className="inputSubBox">
-            <TextField
-              size="small"
+          </p>
+          <div className="ft-inputSubBox">
+            <input
               placeholder="Enter your e-mail..."
-              className="inputFiled"
+              className="ft-inputFiled"
             />
-            <Button
-              sx={{
-                paddingLeft: "20px",
-                paddingRight: "20px",
-                border: "1px solid",
-                fontSize: "16px",
-                fontFamily: "SimplonNorm",
-                fontWeight: 400,
-                color: "white",
-                borderColor: "white",
-              }}
-              variant="outlined"
-            >
-              Subscribe
-            </Button>
-          </Box>
-        </Box>
-        <Box className="contactUsBox">
-          <Box>
-            <Typography
-              sx={{
-                fontSize: "20px",
-                fontFamily: "SimplonNorm",
-                fontWeight: 700,
-                color: "white",
-                marginTop: "-7px",
-              }}
-            >
+            <button className="ft-subscribeBtn">Subscribe</button>
+          </div>
+        </div>
+        <div className="ft-contactUsBox">
+          <div>
+            <p className="ft-beFirstTitleText">
               {mobile ? "CALL US" : "CONTACT US"}
-            </Typography>
-            <Box className="contactNumberBox">
-              <Typography
-                sx={{
-                  fontSize: "16px",
-                  fontFamily: "SimplonNorm",
-                  fontWeight: 400,
-                  color: "white",
-                  display: "flex",
-                  gap: "10px",
-                  justifyContent1: "center",
-                  alignItems: "center",
-                  marginTop: "12px",
-                }}
-              >
+            </p>
+            <div className="ft-contactNumberBox">
+              <p className="ft-contactNumberText">
                 +44 221 133 5360
                 {mobile && (
-                  <StopIcon className="stopIcon" sx={{ fontSize: "10px" }} />
+                  <i
+                    className="fa fa-stop"
+                    aria-hidden="true"
+                    style={{ fontSize: "6px", rotate: "45deg" }}
+                  ></i>
                 )}
                 {mobile && "customercare@mettamuse.com"}
-              </Typography>
-            </Box>
-          </Box>
+              </p>
+            </div>
+          </div>
 
           {!mobile && (
-            <Typography
-              sx={{
-                fontSize: "16px",
-                fontFamily: "SimplonNorm",
-                fontWeight: 400,
-                color: "white",
-              }}
-            >
-              customercare@mettamuse.com
-            </Typography>
+            <p className="ft-signUpText">customercare@mettamuse.com</p>
           )}
-          <Typography
-            sx={{
-              fontSize: "20px",
-              fontFamily: "SimplonNorm",
-              fontWeight: 700,
-              color: "white",
-              marginTop: "10px",
-            }}
-          >
-            CURRENCY
-          </Typography>
-          <Typography
-            sx={{
-              fontSize: "16px",
-              fontFamily: "SimplonNorm",
-              fontWeight: 700,
-              color: "white",
-              display: "flex",
-              gap: "10px",
-              alignItems: "center",
-              marginTop: mobile ? "5px" : "",
-              marginBottom: mobile ? "-11px" : "",
-            }}
-          >
+          <p className="ft-beFirstTitleText">CURRENCY</p>
+          <p className="ft-currencyBox">
             <img
               src={require("../../assets/images/usaIcon.png")}
               className="usaLogo"
               alt="usaLogo"
             />
-            <StopIcon className="stopIcon" sx={{ fontSize: "10px" }} />
+            <i
+              className="fa fa-stop"
+              aria-hidden="true"
+              style={{ fontSize: "6px", rotate: "45deg" }}
+            ></i>
             USD
-          </Typography>
+          </p>
           {!mobile && (
-            <Typography
-              sx={{
-                fontSize: "12px",
-                fontFamily: "SimplonNorm",
-                fontWeight: 400,
-                color: "white",
-              }}
-            >
+            <p className="ft-commonSmText">
               Transactions will be completed in Euros and a currency reference
               is available on hover.
-            </Typography>
+            </p>
           )}
-        </Box>
-      </Box>
-      <Box className="footerBoxTwo">
-        <Box className="mettaBox">
+        </div>
+      </div>
+      <div className="ft-BoxTwo">
+        <div className="ft-mettaBox">
           {mobile ? (
-            <Accordion
-              sx={{
-                borderLeft: "none",
-                borderRight: "none",
-                boxShadow: "none",
-                padding: "0px",
-                width: "100%",
-                borderRadius: "0px",
-                bgcolor: "black",
-                color: "white",
-                "&.Mui-expanded": {
-                  borderLeft: "none",
-                  borderRight: "none",
-                  borderRadius: "0px",
-                  bgcolor: "black",
-                  color: "white",
-                },
-              }}
-            >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
-                aria-controls="panel1-content"
-                id="panel1-header"
-              >
-                mettā muse
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    fontFamily: "SimplonNorm",
-                    fontWeight: 400,
-                    color: "white",
-                  }}
-                >
-                  About Us
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    fontFamily: "SimplonNorm",
-                    fontWeight: 400,
-                    color: "white",
-                  }}
-                >
-                  Stories
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    fontFamily: "SimplonNorm",
-                    fontWeight: 400,
-                    color: "white",
-                  }}
-                >
-                  Artisans
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    fontFamily: "SimplonNorm",
-                    fontWeight: 400,
-                    color: "white",
-                  }}
-                >
-                  Boutiques
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    fontFamily: "SimplonNorm",
-                    fontWeight: 400,
-                    color: "white",
-                  }}
-                >
-                  Contact Us
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    fontFamily: "SimplonNorm",
-                    fontWeight: 400,
-                    color: "white",
-                  }}
-                >
-                  EU Compliances Docs
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
+            <FooterAccordion title="mettā muse" subtitle={dataOne} />
           ) : (
             <>
-              {" "}
-              <Typography
-                sx={{
-                  fontSize: "24px",
-                  fontFamily: "SimplonNorm",
-                  fontWeight: 700,
-                  color: "white",
-                  marginBottom: "5px",
-                }}
-              >
-                mettā muse
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "18px",
-                  fontFamily: "SimplonNorm",
-                  fontWeight: 400,
-                  color: "white",
-                }}
-              >
-                About Us
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "18px",
-                  fontFamily: "SimplonNorm",
-                  fontWeight: 400,
-                  color: "white",
-                }}
-              >
-                Stories
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "18px",
-                  fontFamily: "SimplonNorm",
-                  fontWeight: 400,
-                  color: "white",
-                }}
-              >
-                Artisans
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "18px",
-                  fontFamily: "SimplonNorm",
-                  fontWeight: 400,
-                  color: "white",
-                }}
-              >
-                Boutiques
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "18px",
-                  fontFamily: "SimplonNorm",
-                  fontWeight: 400,
-                  color: "white",
-                }}
-              >
-                Contact Us
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "18px",
-                  fontFamily: "SimplonNorm",
-                  fontWeight: 400,
-                  color: "white",
-                }}
-              >
-                EU Compliances Docs
-              </Typography>
+              <p className="ft-commonMainTitle">mettā muse</p>
+              {dataOne.map((item) => {
+                return (
+                  <p className="ft-commonSubText" key={item.id}>
+                    {item.label}
+                  </p>
+                );
+              })}
             </>
           )}
-        </Box>
-        <Box className={mobile ? "mettaBox2" : "mettaBox"}>
+        </div>
+        <div className={mobile ? "ft-mettaBox2" : "ft-mettaBox"}>
           {mobile ? (
-            <Accordion
-              sx={{
-                borderLeft: "none",
-                borderRight: "none",
-                boxShadow: "none",
-                padding: "0px",
-                width: "100%",
-                borderRadius: "0px",
-                bgcolor: "black",
-                color: "white",
-                paddingTop: "-10px",
-                "&.Mui-expanded": {
-                  borderLeft: "none",
-                  borderRight: "none",
-                  borderRadius: "0px",
-                  bgcolor: "black",
-                  color: "white",
-                },
-              }}
-            >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
-                aria-controls="panel1-content"
-                id="panel1-header"
-              >
-                QUICK LINKS
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    fontFamily: "SimplonNorm",
-                    fontWeight: 400,
-                    color: "white",
-                  }}
-                >
-                  Orders & Shipping
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    fontFamily: "SimplonNorm",
-                    fontWeight: 400,
-                    color: "white",
-                  }}
-                >
-                  Join/Login as a Seller
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    fontFamily: "SimplonNorm",
-                    fontWeight: 400,
-                    color: "white",
-                  }}
-                >
-                  Payment & Pricing
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    fontFamily: "SimplonNorm",
-                    fontWeight: 400,
-                    color: "white",
-                  }}
-                >
-                  Return & Refunds
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    fontFamily: "SimplonNorm",
-                    fontWeight: 400,
-                    color: "white",
-                  }}
-                >
-                  FAQs
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    fontFamily: "SimplonNorm",
-                    fontWeight: 400,
-                    color: "white",
-                  }}
-                >
-                  Privacy Policy
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    fontFamily: "SimplonNorm",
-                    fontWeight: 400,
-                    color: "white",
-                  }}
-                >
-                  Terms & Conditions
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
+            <FooterAccordion title="QUICK LINKS" subtitle={dataTwo} />
           ) : (
             <>
-              <Typography
-                sx={{
-                  fontSize: "24px",
-                  fontFamily: "SimplonNorm",
-                  fontWeight: 700,
-                  color: "white",
-                  marginBottom: "5px",
-                }}
-              >
-                QUICK LINKS
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "18px",
-                  fontFamily: "SimplonNorm",
-                  fontWeight: 400,
-                  color: "white",
-                }}
-              >
-                Orders & Shipping
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "18px",
-                  fontFamily: "SimplonNorm",
-                  fontWeight: 400,
-                  color: "white",
-                }}
-              >
-                Join/Login as a Seller
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "18px",
-                  fontFamily: "SimplonNorm",
-                  fontWeight: 400,
-                  color: "white",
-                }}
-              >
-                Payment & Pricing
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "18px",
-                  fontFamily: "SimplonNorm",
-                  fontWeight: 400,
-                  color: "white",
-                }}
-              >
-                Return & Refunds
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "18px",
-                  fontFamily: "SimplonNorm",
-                  fontWeight: 400,
-                  color: "white",
-                }}
-              >
-                FAQs
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "18px",
-                  fontFamily: "SimplonNorm",
-                  fontWeight: 400,
-                  color: "white",
-                }}
-              >
-                Privacy Policy
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "18px",
-                  fontFamily: "SimplonNorm",
-                  fontWeight: 400,
-                  color: "white",
-                }}
-              >
-                Terms & Conditions
-              </Typography>
+              <p className="ft-commonMainTitle">QUICK LINKS</p>
+              {dataTwo.map((item) => {
+                return (
+                  <p className="ft-commonSubText" key={item.id}>
+                    {item.label}
+                  </p>
+                );
+              })}
             </>
           )}
-        </Box>
-        <Box className="mettaBox3">
+        </div>
+        <div className="ft-mettaBox3">
           {mobile ? (
-            <Accordion
-              sx={{
-                borderLeft: "none",
-                borderRight: "none",
-                boxShadow: "none",
-                padding: "0px",
-                width: "100%",
-                borderRadius: "0px",
-                bgcolor: "black",
-                color: "white",
-                paddingTop: "-10px",
-                "&.Mui-expanded": {
-                  borderLeft: "none",
-                  borderRight: "none",
-                  borderRadius: "0px",
-                  bgcolor: "black",
-                  color: "white",
-                },
-              }}
-            >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
-                aria-controls="panel1-content"
-                id="panel1-header"
-              >
-                Follow Us
-              </AccordionSummary>
-              <AccordionDetails>
-                <Box className="instaLinkBox">
-                  <img
-                    src={require("../../assets/icons/linkdin.png")}
-                    className="linkInstaIcon"
-                    alt="linkdin"
-                  />
-                  <img
-                    src={require("../../assets/icons/Insta.png")}
-                    className="linkInstaIcon"
-                    alt="insta"
-                  />
-                </Box>
-              </AccordionDetails>
-            </Accordion>
+            <FooterAccordion title="Follow Us" subtitle={dataThree} />
           ) : (
-            <Box>
-              <Typography
-                sx={{
-                  fontSize: "20px",
-                  fontFamily: "SimplonNorm",
-                  fontWeight: 700,
-                  color: "white",
-                  marginBottom: "5px",
-                }}
-              >
-                Follow Us
-              </Typography>
-              <Box className="instaLinkBox">
+            <div>
+              <p className="ft-beFirstTitleText">Follow Us</p>
+              <div className="instaLinkBox">
                 <img
                   src={require("../../assets/icons/linkdin.png")}
                   className="linkInstaIcon"
@@ -585,29 +142,21 @@ function Footer() {
                   className="linkInstaIcon"
                   alt="insta"
                 />
-              </Box>
-            </Box>
+              </div>
+            </div>
           )}
-          <Box className="paymentInfoBox">
-            <Typography
-              sx={{
-                fontSize: "18px",
-                fontFamily: "SimplonNorm",
-                fontWeight: 400,
-                color: "white",
-              }}
-            >
-              mettā muse Accepts
-            </Typography>
+          <div className="paymentInfoBox">
+            <p className="ft-commonSubText">mettā muse Accepts</p>
             <img
               src={require("../../assets/images/frame.png")}
               className="paymentIcons"
               alt="paymentIcons"
+              style={{ width: "100%", height: "100%" }}
             />
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
