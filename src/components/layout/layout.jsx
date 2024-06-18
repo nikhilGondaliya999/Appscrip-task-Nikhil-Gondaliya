@@ -57,6 +57,7 @@ function Layout({ children }) {
           <div aria-label="breadcrumb" className="breadcrumbs">
             <a
               className="breadcrumb-link"
+              href="/"
               style={{
                 fontSize: "12px",
                 fontFamily: "SimplonNorm",
@@ -70,6 +71,7 @@ function Layout({ children }) {
 
             <a
               className="breadcrumb-link"
+              href="/"
               style={{
                 fontSize: "12px",
                 fontFamily: "SimplonNorm",
