@@ -70,7 +70,9 @@ function Footer() {
           {!mobile && (
             <p className="ft-signUpText">customercare@mettamuse.com</p>
           )}
-          <p className="ft-beFirstTitleText">CURRENCY</p>
+          <p className="ft-beFirstTitleText" style={{ marginTop: "10px" }}>
+            CURRENCY
+          </p>
           <p className="ft-currencyBox">
             <img
               src={require("../../assets/images/usaIcon.png")}
@@ -151,7 +153,6 @@ function Footer() {
               src={require("../../assets/images/frame.png")}
               className="paymentIcons"
               alt="paymentIcons"
-              style={{ width: "100%", height: "100%" }}
             />
           </div>
         </div>
